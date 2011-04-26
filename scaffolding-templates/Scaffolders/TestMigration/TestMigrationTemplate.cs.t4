@@ -1,0 +1,22 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Migrator.Framework;
+
+namespace <#= Model.Namespace #>
+{ 
+	[Migration(<#= DateTime.Now.ToString("yyyyMMddHHmmss") #>)]
+    public class CreateTestTableMigration : Migration
+    {
+		public override void Down() {
+			//Database.RemoveTable("TestTable");
+		}
+
+		public override void Up() {
+			//Database.AddTable("TestTable", new Column("ID", System.Data.DbType.Int32, ColumnProperty.PrimaryKeyWithIdentity));
+		}
+	}
+}

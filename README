@@ -1,0 +1,3 @@
+This is a collection of tools and conventions we like to use for ASP.NET MVC projects.
+
+It's a foundation built on MvcScaffolding with a bunch of custom code generators.
