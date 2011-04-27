@@ -21,7 +21,7 @@ function Task {
 
 # Build some helpful paths
 $sln = $dte.Solution.FileName | split-path -parent
-$templates = join-path $sln "scaffolding-templates"
+$templates = join-path $sln "mvcboost\scaffolding-templates"
 $proj = (get-project).FileName | split-path -parent
 $binfile = join-path (get-project).name (join-path "bin\" (get-project).Properties.Item("OutputFileName").Value)
 
@@ -63,9 +63,6 @@ Task "Generating dummy scaffolder"`
 Task "Generating css reset..."`
   { Scaffold CssReset }
 
-Task "Generating migration example..."`
-  { Scaffold TestMigration }
-
 Write-Host
 Write-Host "TODO: modify database connection string in build.proj"
-Write-Host "TODO: delete dummy scaffolder and test migration"
+Write-Host "TODO: delete dummy scaffolder from CodeTemplates"
