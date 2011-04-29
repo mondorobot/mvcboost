@@ -45,3 +45,6 @@ _ReSharper*/
 
 # Nuget packages
 *.nupkg
+
+# Project-specific
+migrations.proj
