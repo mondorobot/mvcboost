@@ -46,9 +46,6 @@ $relativePath = $projectUri.MakeRelativeUri($targetUri).ToString().Replace([Syst
 $msbuild.Xml.AddImport($relativePath) | out-null
 $project.Save()
 
-Write-Host "Deleting dummy files..."
-gci ($project.FileName | split-path -parent) -include InstallationDummyFile.txt -recurse | % { rm $_.fullname }
-
 Write-Host
 Write-Host "TODO: modify database connection strings in $targetsFile" -ForegroundColor DarkMagenta
 Write-Host "TODO: delete "Scripts" and "Content" folder if not using them" -ForegroundColor DarkMagenta

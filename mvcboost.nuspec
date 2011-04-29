@@ -2,17 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>mondo-mvcboost</id>
-    <version>0.1.4</version>
+    <version>0.1.11</version>
     <authors>Brandon Croft</authors>
     <owners>Mondo Robot</owners>
     <projectUrl>https://github.com/mondorobot/mvcboost</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A collection of tools and conventions we like to use for ASP.NET MVC projects</description>
     <tags>mvc helper private</tags>
-    <dependencies>
-      <dependency id="MvcScaffolding" />
-	  <dependency id="Migratordotnet" />
-	  <dependency id="punchy" />
-    </dependencies>
+	<dependencies>
+		<dependency id="MvcScaffolding" />
+		<dependency id="migratordotnet" />
+		<dependency id="punchy" />
+	</dependencies>
   </metadata>
 </package>
