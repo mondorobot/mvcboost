@@ -1,0 +1,29 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output extension="cs" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Migrator.Framework;
+
+namespace <#= Model.Namespace #>
+{ 
+	[Migration(<#= Model.MigrationId #>)]
+    public class <#= Model.MigrationName #> : Migration
+    {
+		private const string IX_NAME = "IX_<#= Model.Entity1Guess #>_<#= Model.Entity2Guess #>";
+
+	    public override void Up()
+        {
+                Database["SqlServer"].ExecuteNonQuery(
+@"CREATE INDEX " + IX_NAME + " ON <#= Model.Entity1Guess #> (<#= Model.Entity2Guess #>)"
+);
+        }
+        public override void Down()
+        {
+                Database["SqlServer"].ExecuteNonQuery(
+@"DROP INDEX " + IX_NAME + @" ON <#= Model.Entity1Guess #>"
+);
+        }
+	}
+}

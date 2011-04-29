@@ -1,0 +1,25 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output extension="cs" #>
+using System;
+using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Migrator.Framework;
+
+namespace <#= Model.Namespace #>
+{ 
+	[Migration(<#= Model.MigrationId #>)]
+    public class <#= Model.MigrationName #> : Migration
+    {
+		public override void Up() {
+			Database.AddTable("<#= Model.Entity1Guess #>",
+				new Column("<#= Model.Entity1Guess #>ID", DbType.Int32, ColumnProperty.PrimaryKeyWithIdentity)
+			);
+		}
+
+		public override void Down() {
+			Database.RemoveTable("<#= Model.Entity1Guess #>");
+		}
+	}
+}

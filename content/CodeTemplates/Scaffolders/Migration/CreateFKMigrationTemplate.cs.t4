@@ -1,0 +1,25 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output extension="cs" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Migrator.Framework;
+
+namespace <#= Model.Namespace #>
+{ 
+	[Migration(<#= Model.MigrationId #>)]
+    public class <#= Model.MigrationName #> : Migration
+    {
+		private const string FK_NAME = "FK_<#= Model.Entity1Guess #>_<#= Model.Entity2Guess #>";
+
+	    public override void Up()
+        {
+                Database.AddForeignKey(FK_NAME, "<#= Model.Entity1Guess #>", "Id", "<#= Model.Entity2Guess #>", "id");
+        }
+        public override void Down()
+        {
+                Database.RemoveForeignKey("<#= Model.Entity1Guess #>", FK_NAME);
+        }
+	}
+}
